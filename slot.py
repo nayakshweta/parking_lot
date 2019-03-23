@@ -9,3 +9,9 @@ class Slot:
         self.car_color = car_color
         self.occupied_status = True
     
+    def exit_car(self):
+        self.car_number = 'None'
+        self.car_color = 'None'
+        self.occupied_status = False
+
+

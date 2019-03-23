@@ -18,4 +18,15 @@ class TestSlot(TestCase):
         assert slot.occupied_status == True
         assert slot.car_number == 'KA-03-BB-1234'
         assert slot.car_color == 'White'
+    
+    def test_exit_car(self):
+        slot_number = 1
+        slot = Slot(slot_number)
+        slot.park_car('KA-03-BB-1234', 'White')
+        slot.exit_car()
+
+        assert slot.car_color == 'None'
+        assert slot.car_number == 'None'
+        assert slot.occupied_status == False
         
+
