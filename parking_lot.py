@@ -27,3 +27,7 @@ class Parking_Lot:
         for slot in self.slots:
             if slot.occupied_status == True:
                 print str(slot.slot_number) + '\t\t' + slot.car_number + '\t\t' + slot.car_color
+    
+    def return_parking_ticket(self, slot_number):
+        slot = self.slots[slot_number - 1]
+        slot.exit_car()

@@ -26,3 +26,15 @@ class TestParkingLot(TestCase):
         parking_lot.get_new_ticket('KA-03-BB-1245', 'White')
         parking_lot.get_new_ticket('KA-03-BB-1780', 'Black')
         parking_lot.get_parking_status()
+    
+    def test_return_parking_ticket(self):
+        number_of_slots = 6
+        parking_lot = Parking_Lot(number_of_slots)
+        parking_lot.get_new_ticket('KA-03-BB-1234', 'White')
+        parking_lot.get_new_ticket('KA-03-BH-1260', 'Red')
+        parking_lot.return_parking_ticket(1)
+
+        assert parking_lot.slots[0].car_number == 'None'
+        assert parking_lot.slots[0].car_color == 'None'
+        assert parking_lot.slots[0].occupied_status == False
+
