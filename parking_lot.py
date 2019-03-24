@@ -17,7 +17,13 @@ class Parking_Lot:
             if self.slots[n - 1].occupied_status == False:
                 closest_empty_slot = self.slots[n - 1]
                 break
-            else:
-                print "No empty slots"
             n += 1
+            if n == self.number_of_slots:
+                print "no empty slots!"
         closest_empty_slot.park_car(car_number, car_color)
+    
+    def get_parking_status(self):
+        print "\nSlot No.\tRegistration Number\tColor"
+        for slot in self.slots:
+            if slot.occupied_status == True:
+                print str(slot.slot_number) + '\t\t' + slot.car_number + '\t\t' + slot.car_color
