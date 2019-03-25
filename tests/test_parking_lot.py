@@ -52,7 +52,7 @@ class TestParkingLot(TestCase):
         parking_lot.get_new_ticket('KA-03-BB-1234', 'White')
         parking_lot.get_new_ticket('KA-03-BH-1260', 'Red')
         parking_lot.get_new_ticket('KA-03-BB-1245', 'White')
-        parking_lot.get_slot_numbers_of_cars_with_color('White')
+        parking_lot.get_slot_numbers_for_cars_with_color('White')
 
     def test_get_slot_number_for_registration_number(self):
         number_of_slots = 6

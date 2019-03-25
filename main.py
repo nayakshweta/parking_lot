@@ -22,6 +22,8 @@ class ParkingLotShell(cmd.Cmd):
     
     def do_get_reg_numbers_for_cars_with_color(self, args):
         parking_lot.get_reg_numbers_for_cars_with_color(args[0])
+    
+    
 
 if __name__ == '__main__':
     ParkingLotShell().cmdloop()

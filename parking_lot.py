@@ -55,7 +55,7 @@ class Parking_Lot:
             print "Not Found"
 
 
-    def get_slot_numbers_of_cars_with_color(self, car_color):
+    def get_slot_numbers_for_cars_with_color(self, car_color):
         list_of_cars = []
 
         for slot in self.slots:
