@@ -45,3 +45,10 @@ class Parking_Lot:
             if (slot.occupied_status == True) and (slot.car_color == car_color):
                 list_of_cars.append(str(slot.slot_number))
         print ', '.join(list_of_cars)
+    
+    def get_slot_number_for_registration_number(self, car_number):
+        list_of_cars = []
+        for slot in self.slots:
+            if (slot.occupied_status == True) and (slot.car_number == car_number):
+                list_of_cars.append(str(slot.slot_number))
+        print ', '.join(list_of_cars)
