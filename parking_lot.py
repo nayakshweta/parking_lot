@@ -31,3 +31,11 @@ class Parking_Lot:
     def return_parking_ticket(self, slot_number):
         slot = self.slots[slot_number - 1]
         slot.exit_car()
+    
+    def get_reg_numbers_for_cars_with_color(self, car_color):
+        list_of_cars = []
+        for slot in self.slots:
+            if (slot.occupied_status == True) and (slot.car_color == car_color):
+                list_of_cars.append(slot.car_number)
+        print ', '.join(list_of_cars)
+        
