@@ -3,28 +3,31 @@ from slot import Slot
 class Parking_Lot:
 
     def __init__(self, number_of_slots):
-        self.number_of_slots = number_of_slots
+        self.number_of_slots = int(number_of_slots)
         self.slots = []
         n = 1
         while n <= self.number_of_slots:
             slot = Slot(n)
             self.slots.append(slot)
             n += 1
-        print "Created a parking lot with 6 slots."
+        print "Created a parking lot with " + str(self.number_of_slots) + " slots"
 
 
     def get_new_ticket(self, car_number, car_color):
         n = 1
+        closest_empty_slot = 0
         while n <= self.number_of_slots:
             if self.slots[n - 1].occupied_status == False:
                 closest_empty_slot = self.slots[n - 1]
                 break
             n += 1
-            if n == self.number_of_slots:
-                print "Sorry, parking lot is full!"
-        print "Allocated slot number: " + str(closest_empty_slot.slot_number)
-        closest_empty_slot.park_car(car_number, car_color)
-
+        
+        if not closest_empty_slot:
+            print "Sorry, parking lot is full!"
+        else:
+            print "Allocated slot number: " + str(closest_empty_slot.slot_number)
+            closest_empty_slot.park_car(car_number, car_color)
+        
 
     def get_parking_status(self):
         print "\nSlot No.\tRegistration Number\tColor"
@@ -34,6 +37,7 @@ class Parking_Lot:
     
 
     def return_parking_ticket(self, slot_number):
+        slot_number = int(slot_number)
         slot = self.slots[slot_number - 1]
         slot.exit_car()
         print "Slot Number " + str(slot_number) + " is free."
@@ -53,7 +57,7 @@ class Parking_Lot:
 
     def get_slot_numbers_of_cars_with_color(self, car_color):
         list_of_cars = []
-        
+
         for slot in self.slots:
             if (slot.occupied_status == True) and (slot.car_color == car_color):
                 list_of_cars.append(str(slot.slot_number))
