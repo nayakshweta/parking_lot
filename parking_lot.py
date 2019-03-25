@@ -10,6 +10,7 @@ class Parking_Lot:
             slot = Slot(n)
             self.slots.append(slot)
             n += 1
+        print "Created a parking lot with 6 slots."
 
     def get_new_ticket(self, car_number, car_color):
         n = 1
@@ -19,9 +20,10 @@ class Parking_Lot:
                 break
             n += 1
             if n == self.number_of_slots:
-                print "no empty slots!"
+                print "Sorry, parking lot is full!"
+        print "Allocated slot number: " + str(closest_empty_slot.slot_number)
         closest_empty_slot.park_car(car_number, car_color)
-    
+
     def get_parking_status(self):
         print "\nSlot No.\tRegistration Number\tColor"
         for slot in self.slots:
@@ -31,6 +33,7 @@ class Parking_Lot:
     def return_parking_ticket(self, slot_number):
         slot = self.slots[slot_number - 1]
         slot.exit_car()
+        print "Slot Number " + str(slot_number) + " is free."
     
     def get_reg_numbers_for_cars_with_color(self, car_color):
         list_of_cars = []
