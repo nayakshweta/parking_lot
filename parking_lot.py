@@ -38,4 +38,10 @@ class Parking_Lot:
             if (slot.occupied_status == True) and (slot.car_color == car_color):
                 list_of_cars.append(slot.car_number)
         print ', '.join(list_of_cars)
-        
+    
+    def get_slot_numbers_of_cars_with_color(self, car_color):
+        list_of_cars = []
+        for slot in self.slots:
+            if (slot.occupied_status == True) and (slot.car_color == car_color):
+                list_of_cars.append(str(slot.slot_number))
+        print ', '.join(list_of_cars)
