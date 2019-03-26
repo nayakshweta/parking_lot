@@ -1,6 +1,7 @@
 import sys, cmd
 from parking_lot import Parking_Lot
 from slot import Slot
+import pickle
 
 
 class ParkingLotShell(cmd.Cmd):
@@ -12,7 +13,11 @@ class ParkingLotShell(cmd.Cmd):
     else:
         use_rawinput = False
 
-    parking_lot = NotImplemented
+    try:
+        parking_dbfile = open('parkingPickle', 'rb')
+        parking_lot = pickle.load(parking_dbfile)
+    except:
+        parking_lot = NotImplemented
 
     #----- parking lot commands -----#
     def do_create_parking_lot(self, args):
@@ -41,6 +46,9 @@ class ParkingLotShell(cmd.Cmd):
         return True
 
     def do_exit(self,*args):
+        parking_dbfile = open('parkingPickle', 'ab')
+        pickle.dump(self.parking_lot, parking_dbfile)
+        parking_dbfile.close()
         return True
 
 if __name__ == '__main__':
