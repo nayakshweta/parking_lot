@@ -6,6 +6,11 @@ class ParkingLotShell(cmd.Cmd):
     intro = "Welcome to the Parking System. Type ? to list commands. \n"
     prompt = '<parking system>'
 
+    if not sys.stdin:
+        use_rawinput = True
+    else:
+        use_rawinput = False
+
     #----- parking lot commands -----#
     def do_create_parking_lot(self, args):
         global parking_lot
@@ -30,5 +35,12 @@ class ParkingLotShell(cmd.Cmd):
     def do_slot_number_for_registration_number(self, args):
         parking_lot.get_slot_number_for_registration_number(args)
 
+    def do_EOF(self, line):
+        return True
+
 if __name__ == '__main__':
-    ParkingLotShell().cmdloop()
+    if len(sys.argv) == 2:
+        with open(sys.argv[1], 'rt') as input:
+            ParkingLotShell(stdin=input).cmdloop()
+    else:
+        ParkingLotShell().cmdloop()
