@@ -3,7 +3,6 @@ from parking_lot import Parking_Lot
 from slot import Slot
 
 
-
 class ParkingLotShell(cmd.Cmd):
     intro = "Welcome to the Parking System. Type ? to list commands. \n"
     prompt = '<parking system>'
@@ -39,6 +38,9 @@ class ParkingLotShell(cmd.Cmd):
         self.parking_lot.get_slot_number_for_registration_number(args)
 
     def do_EOF(self, line):
+        return True
+
+    def do_exit(self,*args):
         return True
 
 if __name__ == '__main__':
