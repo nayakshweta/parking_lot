@@ -137,12 +137,13 @@ class Parking_Lot:
                 list_of_cars.append(str(slot.slot_number))
         print "Car Parking: " + ', '.join(list_of_cars)
 
+        if not list_of_cars:
+            print "No Cars Found"
+
         for slot in self.bike_slots:
             if (slot.occupied_status == True) and (slot.vehicle_number == vehicle_number):
                 list_of_bikes.append(str(slot.slot_number))
         print "Bike Parking: " + ', '.join(list_of_bikes)
 
-        if not list_of_cars:
-            print "No Cars Found"
         if not list_of_bikes:
             print "No Bikes Found"
