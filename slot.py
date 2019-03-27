@@ -4,14 +4,14 @@ class Slot:
         self.slot_number = slot_number
         self.occupied_status = False
     
-    def park_car(self, car_number, car_color):
-        self.car_number = car_number
-        self.car_color = car_color
+    def park_vehicle(self, vehicle_number, vehicle_color):
+        self.vehicle_number = vehicle_number
+        self.vehicle_color = vehicle_color
         self.occupied_status = True
     
-    def exit_car(self):
-        self.car_number = 'None'
-        self.car_color = 'None'
+    def exit_vehicle(self):
+        self.vehicle_number = 'None'
+        self.vehicle_color = 'None'
         self.occupied_status = False
 
 
